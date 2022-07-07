@@ -1,10 +1,10 @@
-library(fuzzyjoin)
 library(readr)
+library(readxl)
 library(dplyr)
-setwd("~/wq/observed_wq")
-all_s <- read_excel("Jan.xls")
+setwd("C:/project/paper5/observed_wq")
+ref_s <- read_excel ("station_ref.xls",col_names = FALSE)
 some_s <- read_csv("changed_row.csv")
 some_s <- some_s %>% 
-  select(-c(3,4,5,6,8))
-colnames(all_s)[5] <- "NAME"
-all <- stringdist_inner_join(some_s,all_s, by = 'NAME')
+  select(-c(3,4,5,6,8,13))
+colnames(ref_s) <- c("NAME","LAT","LON")
+all <- left_join(some_s,ref_s, by = 'NAME')
