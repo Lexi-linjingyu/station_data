@@ -1,0 +1,6 @@
+library(fuzzyjoin)
+all_s <- read_csv("C:/project/paper3_water_china/water quality/
+                        water_quality_data/changed_row.csv")
+some_s <- read_excel("wq/observed_wq/Jan.xls")
+colnames(Jan)[5] <- "NAME"
+stringdist_inner_join(changed_row, Jan, by = 'NAME')
