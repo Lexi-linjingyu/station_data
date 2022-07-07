@@ -1,6 +1,7 @@
 
 library(fuzzyjoin)
 library(readr)
+setwd("~/wq/observed_wq")
 all_s <- read_csv("all_s.csv")
 some_s <- read_csv("changed_row.csv")
 colnames(all_s)[5] <- "NAME"
